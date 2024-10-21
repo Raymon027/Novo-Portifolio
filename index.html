@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- --------- LOGO ---------- -->
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+
+    
+
+    <title>Portfolio</title>
+</head>
+<body>
+   <div class="container">
+    <!-- --------------- Titulo --------------- -->
+      <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">Portfolio</p>
+            
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list">
+                    <a href="#home" class="nav-link active-link">Home</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#projects" class="nav-link">Projetos</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#contact" class="nav-link">Contato</a>
+                    <div class="circle"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button class="btn">Linkedin <i class="uil uil-linkedin-alt"></i></button>
+        </div>
+        <div class="nav-menu-btn">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+
+    <!-- -------------- Principal ---------------- -->
+    <main class="wrapper">
+       <!-- -------------- Caixa em destaque ---------------- -->
+       <section class="featured-box" id="home">
+          <div class="featured-text">
+            <div class="featured-text-card">
+                <span>Ramon Godoi</span>
+            </div>
+            <div class="featured-name">
+                <p>Eu sou <span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+                <p>Programador Backend.
+                </p>
+            </div>
+            <div class="featured-text-btn">
+                <button class="btn blue-btn">Fale comigo!</button>
+                
+            </div>
+            <div class="social_icons">
+                <div class="icon"><i class="uil uil-instagram"></i></div>
+                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+                <div class="icon"><i class="uil uil-whatsapp"></i></div>
+                <div class="icon"><i class="uil uil-github-alt"></i></div>
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="image">
+                <img src="assets/images/avatar.png" alt="avatar">
+            </div>
+          </div>
+          <div class="scroll-icon-box">
+            <a href="#about" class="scroll-btn">
+                <i class="uil uil-mouse-alt"></i>
+                <p>Role para baixo</p>
+            </a>
+          </div>
+
+       </section>
+       <!-- -------------- Sobre ---------------- -->
+       <section class="section" id="about">
+          <div class="top-header">
+            <h1>Sobre mim</h1>
+          </div>
+          <div class="row">
+            <div class="col">
+                <div class="about-info">
+                    <h3>Quem eu sou ?</h3>
+                    <p>Sempre amei a tecnologia e em 2021 comecei a cursar ciência da computação na UFES e me apaixonei
+                        pelo curso, vi na programação algo que nunca pensei que viria em uma profissão e após isso comecei 
+                        a fazer outros cursos onlines para desbravar mais ainda esse mundo.
+                    </p>
+                    <div class="about-btn">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>HTML</span>
+                        <span>CSS</span>                       
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>C#</span>
+                        <span>Python</span>
+                        <span>C</span>
+                    </div>
+                </div>
+                <div class="skills-box">
+                    <div class="skills-header">
+                        <h3>Database</h3>
+                    </div>
+                    <div class="skills-list">
+                        <span>Em breve MySQL</span>
+                    </div>
+                </div>
+            </div>
+          </div>
+       </section>
+
+       <!-- -------------- Projeto ---------------- -->
+
+       <section class="section" id="projects">
+          <div class="top-header">
+              <h1>Projetos</h1>
+          </div>
+          <div class="project-container">
+            <div class="project-box">
+                <img src="./assets/images/Em breve.png"> 
+                <h3>Em andamento</h3>
+                <label>Em breve</label>
+            </div>
+            <div class="project-box">
+                <img src="./assets/images/Em breve.png">
+                <h3>Em andamento</h3>
+                <label>Em breve</label>
+            </div>
+            <div class="project-box">
+                <img src="./assets/images/Em breve.png">
+                <h3>Em andamento</h3>
+                <label>Em breve</label>
+            </div>
+          </div>
+       </section>
+
+       <!-- -------------- Contato ---------------- -->
+
+       <section class="section" id="contact">
+          <div class="top-header">
+            <h1>Entre em contato</h1>
+            <span>Se você estiver precisando de alguem para agregar na sua empresa, fale comigo</span>
+          </div>
+          <div class="row">
+             <div class="col">
+                <div class="contact-info">
+                    <h2>Fale comigo! <i class="uil uil-corner-right-down"></i></h2>
+                    <p><i class="uil uil-envelope"></i> Email: ramon.dt4@gmail.com</p>
+                    <p><i class="uil uil-phone"></i> Tel: +55 (27) 99750-6205</p>
+                </div>
+             </div>
+             <div class="col">
+                <div class="form-control">
+                    <div class="form-inputs">
+                        <input type="text" class="input-field" placeholder="Name">
+                        <input type="text" class="input-field" placeholder="Email">
+                    </div>
+                    <div class="text-area">
+                        <textarea placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-button">
+                        <button class="btn">Enviar <i class="uil uil-message"></i></button>
+                    </div>
+                </div>
+             </div>
+          </div>
+       </section>
+
+    </main>
+
+
+    <!-- --------------- Rodape --------------- -->
+    <footer>
+        <div class="top-footer">
+            <p>Ramon Godoi</p>
+        </div>
+        <div class="middle-footer">
+            <ul class="footer-menu">
+                <li class="footer_menu_list">
+                    <a href="#home">Home</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#about">Sobre</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#projects">Projetos</a>
+                </li>
+                <li class="footer_menu_list">
+                    <a href="#contact">Contato</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-social-icons">
+            <div class="icon"><i class="uil uil-instagram"></i></div>
+            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
+            <div class="icon"><i class="uil uil-whatsapp"></i></div>
+            <div class="icon"><i class="uil uil-github-alt"></i></div>
+        </div>
+        <div class="bottom-footer">
+            <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Ramon Godoi</a> - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    </div>
+
+
+
+
+    <!-- ----- Digitando JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+       <!-- ----- Rolagem revelelacao JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ----- Principal JS ----- -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
