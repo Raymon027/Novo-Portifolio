@@ -286,7 +286,7 @@ nav{
 }
 .col{
     display: flex;
-    width: 50%;
+    width: 100%;
 }
 
 /* -- ## --- CSS reutilizavel -- ## -- */
@@ -619,15 +619,41 @@ footer{
     .project-box{
         width: 80%;
     }
-
 }
+
+
+@media (max-width: 768px) {
+    .featured-text {
+        font-size: 24px; /* Ajuste o tamanho da fonte para telas menores */
+    }
+    .container {
+        max-width: 90%;
+    }
+}
+
 
 /* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
 
 @media only screen and (max-width: 540px){
-    .featured-name{
-        font-size: 40px;
+
+    main.wrapper {
+        margin-left: 20px;
     }
+
+    .featured-name{
+        font-size: 30px;
+    }
+
+    .featured-text-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+        
+      }
+
+    div.social_icons {
+        margin-left: 20px;
+    }
+    
     .project-box{
         width: 100%;
     }
@@ -637,4 +663,20 @@ footer{
     .input-field{
         width: 100%;
     }
+
+    div.form-control {
+        margin: auto;
+        width: 90%;
+    }
+
+    div.form-button {
+        width: 100%;
+    }
+    
+    footer {
+        margin: auto;
+        width: 120%;
+    }
+
 }
+
