@@ -46,8 +46,11 @@
             </ul>
         </div>
         <div class="nav-button">
-            <button class="btn">Linkedin <i class="uil uil-linkedin-alt"></i></button>
+            <button onclick="window.open('https://www.linkedin.com/in/ramon-godoi/', '_blank')" class="btn">
+                Linkedin <i class="uil uil-linkedin-alt"></i>
+            </button>
         </div>
+        
         <div class="nav-menu-btn">
             <i class="uil uil-bars" onclick="myMenuFunction()"></i>
         </div>
@@ -70,15 +73,25 @@
                 </p>
             </div>
             <div class="featured-text-btn">
-                <button class="btn blue-btn">Fale comigo!</button>
-                
+                <a href="#contact" class="btn blue-btn">Fale comigo!</a>
             </div>
+            
+            
             <div class="social_icons">
-                <div class="icon"><i class="uil uil-instagram"></i></div>
-                <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-                <div class="icon"><i class="uil uil-whatsapp"></i></div>
-                <div class="icon"><i class="uil uil-github-alt"></i></div>
+                <a href="https://www.instagram.com/ramon.godoii" target="_blank" class="icon">
+                    <i class="uil uil-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/ramon-godoi/" target="_blank" class="icon">
+                    <i class="uil uil-linkedin-alt"></i>
+                </a>
+                <a href="https://wa.me/5527997506205" target="_blank" class="icon">
+                    <i class="uil uil-whatsapp"></i>
+                </a>
+                <a href="https://github.com/ramongodoii" target="_blank" class="icon">
+                    <i class="uil uil-github-alt"></i>
+                </a>
             </div>
+            
           </div>
           <div class="featured-image">
             <div class="image">
@@ -130,6 +143,7 @@
                         <span>C#</span>
                         <span>Python</span>
                         <span>C</span>
+                        <span>NodeJs</span>
                     </div>
                 </div>
                 <div class="skills-box">
@@ -138,6 +152,7 @@
                     </div>
                     <div class="skills-list">
                         <span>Em breve MySQL</span>
+                        <span>SQLite</span>
                     </div>
                 </div>
             </div>
@@ -174,7 +189,7 @@
        <section class="section" id="contact">
           <div class="top-header">
             <h1>Entre em contato</h1>
-            <span>Se você estiver precisando de alguem para agregar na sua empresa, fale comigo</span>
+            <span>Se você estiver precisando de alguem para agregar na sua empresa, fale comigo!</span>
           </div>
           <div class="row">
              <div class="col">
@@ -185,19 +200,41 @@
                 </div>
              </div>
              <div class="col">
-                <div class="form-control">
-                    <div class="form-inputs">
-                        <input type="text" class="input-field" placeholder="Name">
-                        <input type="text" class="input-field" placeholder="Email">
+                <form id="contact-form"> <!-- Envolve tudo em uma tag <form> e adiciona um id -->
+                    <div class="form-control">
+                        <div class="form-inputs">
+                            <input type="text" class="input-field" name="name" placeholder="Name" required>
+                            <input type="email" class="input-field" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="text-area">
+                            <textarea name="message" placeholder="Message" required></textarea>
+                        </div>
+                        <div class="form-button">
+                            <button type="submit" class="btn">Enviar <i class="uil uil-message"></i></button>
+                        </div>
                     </div>
-                    <div class="text-area">
-                        <textarea placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-button">
-                        <button class="btn">Enviar <i class="uil uil-message"></i></button>
-                    </div>
-                </div>
-             </div>
+                </form>
+            </div>
+            
+            <!-- Script do EmailJS -->
+            <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+            <script>
+                // Inicializa o EmailJS com seu USER_ID
+                emailjs.init("N0OLHBU10_Io_3lVd"); // Substitua "YOUR_USER_ID" pelo seu ID de usuário do EmailJS
+            
+                // Função para enviar o email
+                document.getElementById("contact-form").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Evita o recarregamento da página
+            
+                    emailjs.sendForm("service_5nx6l3m", "template_gbk636m", this)
+                        .then(function(response) {
+                            alert("Email enviado com sucesso!");
+                        }, function(error) {
+                            alert("Erro ao enviar o email: " + JSON.stringify(error));
+                        });
+                });
+            </script>
+            
           </div>
        </section>
 
@@ -226,10 +263,18 @@
             </ul>
         </div>
         <div class="footer-social-icons">
-            <div class="icon"><i class="uil uil-instagram"></i></div>
-            <div class="icon"><i class="uil uil-linkedin-alt"></i></div>
-            <div class="icon"><i class="uil uil-whatsapp"></i></div>
-            <div class="icon"><i class="uil uil-github-alt"></i></div>
+            <a href="https://www.instagram.com/ramon.godoii" target="_blank" class="icon">
+                <i class="uil uil-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ramon-godoi/" target="_blank" class="icon">
+                <i class="uil uil-linkedin-alt"></i>
+            </a>
+            <a href="https://wa.me/5527997506205" target="_blank" class="icon">
+                <i class="uil uil-whatsapp"></i>
+            </a>
+            <a href="https://github.com/ramongodoii" target="_blank" class="icon">
+                <i class="uil uil-github-alt"></i>
+            </a>
         </div>
         <div class="bottom-footer">
             <p>Copyright &copy; <a href="#home" style="text-decoration: none;">Ramon Godoi</a> - Todos os direitos reservados.</p>
