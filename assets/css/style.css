@@ -654,10 +654,7 @@ footer{
 
 @media only screen and (max-width: 540px){
 
-    main.wrapper {
-        margin-left: 20px;
-    }
-
+	
     .featured-name{
         font-size: 30px;
     }
@@ -667,11 +664,26 @@ footer{
         font-size: 15px;
         
       }
+	section#home.featured-box {
+		position:relative;
+		left: 30px;
+	}
 
-    div.social_icons {
-        margin-left: 20px;
-    }
-    
+	section#about.section{
+		position:relative;
+		left: 30px;
+	}
+
+	section#projects.section{
+		position:relative;
+		left: 30px;
+	}
+
+	section#contact.section {
+		position:relative;
+		left: 30px;
+	}
+	
     .project-box{
         width: 100%;
     }
@@ -697,4 +709,3 @@ footer{
     }
 
 }
-
