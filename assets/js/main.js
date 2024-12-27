@@ -1,12 +1,20 @@
 /* ----- Barra de navegacao ----- */
-function myMenuFunction(){
-  var menuBtn = document.getElementById("myNavMenu");
+function myMenuFunction() {
+  const menuBtn = document.getElementById("myNavMenu");
+  const menuLinks = document.querySelectorAll("#myNavMenu a"); // Seleciona todos os links dentro do menu
 
-  if(menuBtn.className === "nav-menu"){
-    menuBtn.className += " responsive";
+  if (menuBtn.classList.contains("responsive")) {
+      menuBtn.classList.remove("responsive"); // Fecha o menu se já estiver aberto
   } else {
-    menuBtn.className = "nav-menu";
+      menuBtn.classList.add("responsive"); // Abre o menu
   }
+
+  // Adiciona um ouvinte de evento para cada link do menu
+  menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          menuBtn.classList.remove("responsive"); // Fecha o menu ao clicar em um link
+      });
+  });
 }
 
 /* ----- Adiciona sombra na barra de navegacao ao rolar ----- */
