@@ -1,123 +1,153 @@
-/* ----- Barra de navegacao ----- */
-function myMenuFunction() {
-  const menuBtn = document.getElementById("myNavMenu");
-  const menuLinks = document.querySelectorAll("#myNavMenu a"); // Seleciona todos os links dentro do menu
+// Menu aparencendo e sumindo
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close')
 
-  if (menuBtn.classList.contains("responsive")) {
-      menuBtn.classList.remove("responsive"); // Fecha o menu se já estiver aberto
-  } else {
-      menuBtn.classList.add("responsive"); // Abre o menu
-  }
 
-  // Adiciona um ouvinte de evento para cada link do menu
-  menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-          menuBtn.classList.remove("responsive"); // Fecha o menu ao clicar em um link
-      });
+
+// Menu aparencendo
+if(navToggle){
+    navToggle.addEventListener('click', () =>{
+        navMenu.classList.add('show-menu')
+    })
+}
+
+// Menu sumindo
+if(navClose){
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu')
+    })
+}
+
+// Remover menu Mobile
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+//Habilidades
+const skillsContent = document.getElementsByClassName('skills__content'),
+      skillsHeader = document.querySelectorAll('.skills__header')
+
+
+
+function toggleSkills() { 
+    if (this.parentNode.className === 'skills__content skills__open') { 
+        this.parentNode.className = 'skills__content skills__close' 
+        return false; 
+    } 
+    for (i = 0; i < skillsContent.length; i++) { 
+        skillsContent[i].className = 'skills__content skills__close' 
+    } 
+    if (this.parentNode.className === 'skills__content skills__close') { 
+        this.parentNode.className = 'skills__content skills__open' 
+    } }
+
+skillsHeader.forEach((el) => {
+    el.addEventListener('click', toggleSkills)
+})
+
+//Qualificação
+const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab =>{
+    tab.addEventListener('click', () =>{
+        const target = document.querySelector(tab.dataset.target)
+
+        tabContents.forEach(tabContents =>{
+            tabContents.classList.remove('qualification__active')
+        })
+        target.classList.add('qualification__active')
+
+        tabs.forEach(tab =>{
+            tab.classList.remove('qualification__active')
+        })
+        tab.classList.add('qualification__active')
+    })
+})
+
+//Projeto Swiper
+let swiper = new Swiper(".portfolio__container", {
+    cssMode: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
   });
-}
-
-/* ----- Adiciona sombra na barra de navegacao ao rolar ----- */
-window.onscroll = function() {headerShadow()};
-
-function headerShadow() {
-  const navHeader =document.getElementById("header");
-
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop >  50) {
-
-    navHeader.style.boxShadow = "0 1px 6px rgba(0, 0, 0, 0.1)";
-    navHeader.style.height = "70px";
-    navHeader.style.lineHeight = "70px";
-
-  } else {
-
-    navHeader.style.boxShadow = "none";
-    navHeader.style.height = "90px";
-    navHeader.style.lineHeight = "90px";
-
-  }
-}
 
 
-/* ----- Efeito de digitacao ----- */
-var typingEffect = new Typed(".typedText",{
-  strings : ["Programador","Ramon Godoi"],
-  loop : true,
-  typeSpeed : 100, 
-  backSpeed : 80,
-  backDelay : 2000
-})
-
-
-/* ----- ## -- Animacao de revelacao da rolagem -- ## ----- */
-const sr = ScrollReveal({
-      origin: 'top',
-      distance: '80px',
-      duration: 2000,
-      reset: true     
-})
-
-/* -- Home -- */
-sr.reveal('.featured-text-card',{})
-sr.reveal('.featured-name',{delay: 100})
-sr.reveal('.featured-text-info',{delay: 200})
-sr.reveal('.featured-text-btn',{delay: 200})
-sr.reveal('.social_icons',{delay: 200})
-sr.reveal('.featured-image',{delay: 300})
-
-
-/* -- Caixa de projetos -- */
-sr.reveal('.project-box',{interval: 200})
-
-/* -- Titulos -- */
-sr.reveal('.top-header',{})
-
-/* -- Sobre e contatos -- */
-const srLeft = ScrollReveal({
-origin: 'left',
-distance: '80px',
-duration: 2000,
-reset: true
-})
-
-srLeft.reveal('.about-info',{delay: 100})
-srLeft.reveal('.contact-info',{delay: 100})
-
-/* -- Habilidades e caixa de formulario -- */
-const srRight = ScrollReveal({
-origin: 'right',
-distance: '80px',
-duration: 2000,
-reset: true
-})
-
-srRight.reveal('.skills-box',{delay: 100})
-srRight.reveal('.form-control',{delay: 100})
-
-
-
-/* ----- Alternar link ativo ----- */
-
+//Scrolls
 const sections = document.querySelectorAll('section[id]')
 
-function scrollActive() {
-const scrollY = window.scrollY;
+function scrollActive(){
+    const scrollY = window.pageYOffset
+    
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
 
-sections.forEach(current =>{
-  const sectionHeight = current.offsetHeight,
-      sectionTop = current.offsetTop - 50,
-    sectionId = current.getAttribute('id')
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
 
-  if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) { 
 
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active-link')
+//Backgroud Header
+function scrollHeader(){
+    const nav = document.getElementById('header')
 
-  }  else {
+    if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
 
-    document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active-link')
+//Show scroll up
+function scrollUp(){
+    const scrollUp = document.getElementById('scroll-up');
 
-  }
-})
+    if(this.scrollY >=560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+
+//Tema Escuro
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'uil-sun'
+
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+
+
+if (selectedTheme){
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
 }
 
-window.addEventListener('scroll', scrollActive)
+themeButton.addEventListener('click', () => {
+    document.body.classList.toggle(darkTheme)
+    themeButton.classList.toggle(iconTheme)
+
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+
+    
+})
+
